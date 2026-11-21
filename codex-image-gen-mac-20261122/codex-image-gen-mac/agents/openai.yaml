@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex ImageGen Mac"
+  short_description: "macOS image generation with persistent Keychain credentials"
+  default_prompt: "Use $codex-image-gen-mac to configure persistent macOS API access or generate an image through Codex ImageGen Mac."

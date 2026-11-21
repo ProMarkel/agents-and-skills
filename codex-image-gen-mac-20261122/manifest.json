@@ -1,0 +1,121 @@
+{
+  "name": "codex-image-gen-mac",
+  "display_name": "Codex ImageGen Mac",
+  "release": "2026-11-22",
+  "runtime_platforms": [
+    "darwin-arm64",
+    "darwin-amd64"
+  ],
+  "verified_runtime_platform": "darwin-arm64",
+  "configuration": "macOS Keychain service codex-image-gen; CODEX_API_URL in ~/.zprofile; zsh login-shell execution",
+  "files": [
+    {
+      "path": "codex-image-gen-mac/agents/openai.yaml",
+      "bytes": 266,
+      "mode": "0o644",
+      "sha256": "b6dcd977fc979fd1ad6c7dd88b8efc3c283d74af431f85e44b30615cbfcbff27"
+    },
+    {
+      "path": "codex-image-gen-mac/bin/codex-image-gen-mac-darwin-amd64",
+      "bytes": 11240624,
+      "mode": "0o755",
+      "sha256": "c3a0d5d240ecde8c6408ae09e5cf4aadfc4c5eead1ef419b06ba78a073cc49a9"
+    },
+    {
+      "path": "codex-image-gen-mac/bin/codex-image-gen-mac-darwin-arm64",
+      "bytes": 10482818,
+      "mode": "0o755",
+      "sha256": "1f49fdb113422787a77a6c9061e58ea939c1c99a9f423a1fd1de824af74a6a55"
+    },
+    {
+      "path": "codex-image-gen-mac/references/batch-format.md",
+      "bytes": 1610,
+      "mode": "0o644",
+      "sha256": "8365991fd1253293a59b1f83690121c4540fda83087a17bb32f1c426913f5483"
+    },
+    {
+      "path": "codex-image-gen-mac/references/macos-persistence.md",
+      "bytes": 2955,
+      "mode": "0o644",
+      "sha256": "c5fa99118d020b3005fca2647880efdca0073516bef264ddba1d07fe5ad06037"
+    },
+    {
+      "path": "codex-image-gen-mac/references/runtime.md",
+      "bytes": 12506,
+      "mode": "0o644",
+      "sha256": "7daaa73f4c587237714ee88f6c2be7eb5784fe1441d9a1d60de2dcc0c6a34da5"
+    },
+    {
+      "path": "codex-image-gen-mac/SKILL.md",
+      "bytes": 8844,
+      "mode": "0o644",
+      "sha256": "ceb833d896e69007d7753e0a609698a389243383d4eba88563c211157ec6e48a"
+    },
+    {
+      "path": "codex-image-gen-mac/src/catalog.go",
+      "bytes": 3807,
+      "mode": "0o644",
+      "sha256": "0bc09beb571c839aecc1371f9737865a4373153d4d1e41e78a88e0328fd6d3e6"
+    },
+    {
+      "path": "codex-image-gen-mac/src/catalog_test.go",
+      "bytes": 8787,
+      "mode": "0o644",
+      "sha256": "225d224cdf266beab106c6ec976c6e6621df702138dfe5cc49c097d439d96a40"
+    },
+    {
+      "path": "codex-image-gen-mac/src/go.mod",
+      "bytes": 38,
+      "mode": "0o644",
+      "sha256": "6af411d246a7201d4c515ad48ff695c4ba6baea10e330990e66a314f4d79115f"
+    },
+    {
+      "path": "codex-image-gen-mac/src/image_gen.go",
+      "bytes": 35117,
+      "mode": "0o644",
+      "sha256": "e7b8bc1b932fda6933a6dfb522f2af2445c8047dac9a97aedc658ab1a25190ca"
+    },
+    {
+      "path": "codex-image-gen-mac/src/image_gen_test.go",
+      "bytes": 3434,
+      "mode": "0o644",
+      "sha256": "5cd9d09b73d69bed8c05923c3ea0bf3fb12d161909daaee7f1bee766e41be110"
+    },
+    {
+      "path": "codex-image-gen-mac/src/images.go",
+      "bytes": 11580,
+      "mode": "0o644",
+      "sha256": "210fe6c2eb9b84fa2eb489feb10419afbd07ee09a4d6bb9b076945846b4d1b65"
+    },
+    {
+      "path": "codex-image-gen-mac/src/models.go",
+      "bytes": 4175,
+      "mode": "0o644",
+      "sha256": "6531d309c8b03ce6a2a2391fdc60d2ae173cecd554b047e05cb579d92e397a5d"
+    },
+    {
+      "path": "codex-image-gen-mac/src/reliability.go",
+      "bytes": 14835,
+      "mode": "0o644",
+      "sha256": "712bd99bb3997f35e7ff33f5c7b15026c267f135764038e6ff18425711aa6460"
+    },
+    {
+      "path": "codex-image-gen-mac/src/reliability_test.go",
+      "bytes": 24403,
+      "mode": "0o644",
+      "sha256": "0f924595e1d36c841b2ba23c701342cb2cc4ece00d7e5998e6ff478e0c8a0fcd"
+    },
+    {
+      "path": "codex-image-gen-mac/src/state.go",
+      "bytes": 14610,
+      "mode": "0o644",
+      "sha256": "1297099f0a6c3a85ba361ba262ff2411c45c7ec13e7b45cbc9228903a4fe6f95"
+    },
+    {
+      "path": "codex-image-gen-mac/src/video.go",
+      "bytes": 9154,
+      "mode": "0o644",
+      "sha256": "cc44908ed622972a59049eedde858621cf62fb95b9dca38f0d0ba93c03ce8318"
+    }
+  ]
+}

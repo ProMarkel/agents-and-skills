@@ -1,0 +1,31 @@
+# 技能运行时产物（图片/视频输出、私有恢复状态）
+# .state 可能含提示词、参考图字节、签名结果 URL，绝不上传
+output/
+**/.state/
+job.json
+
+# 本地凭证：技能凭证只应存环境变量 / macOS Keychain，不落盘到仓库
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# Go 测试与覆盖率产物
+*.test
+coverage.*
+
+# macOS / Windows 系统文件
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+desktop.ini
+
+# 编辑器与临时文件
+.idea/
+.vscode/
+*.swp
+*~
+*.tmp

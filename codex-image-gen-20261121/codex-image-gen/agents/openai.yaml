@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex ImageGen"
+  short_description: "Gateway images with model selection and job recovery"
+  default_prompt: "Use $codex-image-gen to generate an image using the configured API, supported models, and saved availability."

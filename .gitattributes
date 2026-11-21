@@ -1,0 +1,6 @@
+# 默认所有文本文件统一 LF（core.autocrlf=true 会破坏 manifest 的 SHA-256 校验）
+* text=auto eol=lf
+
+# 二进制文件不做任何换行符转换
+*.exe binary
+**/bin/codex-image-* binary

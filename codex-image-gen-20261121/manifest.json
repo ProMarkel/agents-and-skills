@@ -1,0 +1,132 @@
+{
+  "name": "codex-image-gen",
+  "display_name": "Codex ImageGen",
+  "release": "2026-11-21",
+  "runtime_platforms": [
+    "darwin-arm64",
+    "darwin-amd64",
+    "windows-amd64",
+    "windows-arm64"
+  ],
+  "verified_runtime_platform": "darwin-arm64",
+  "go_tests_including_subtests": 58,
+  "rename_smoke_checks": 9,
+  "previous_full_cli_checks": 33,
+  "configuration": "Environment variables; existing macOS GUI-session compatibility; no Keychain/profile persistence",
+  "files": [
+    {
+      "path": "codex-image-gen/agents/openai.yaml",
+      "bytes": 250,
+      "mode": "0o644",
+      "sha256": "2ef9ec298291b2d8ab74e39786db0c4d11f56530e94a20f96e0c7e75a38c188b"
+    },
+    {
+      "path": "codex-image-gen/bin/codex-image-gen-darwin-amd64",
+      "bytes": 7661856,
+      "mode": "0o755",
+      "sha256": "0f080c9db3d8ae9b72c8832faf6242259969d18b3d6b8aaf26e96f912bff8bba"
+    },
+    {
+      "path": "codex-image-gen/bin/codex-image-gen-darwin-arm64",
+      "bytes": 7081522,
+      "mode": "0o755",
+      "sha256": "47cdcb313ebb7cbf5037c43389c86c36e9cf72aa049b57ae68a9376c02a46279"
+    },
+    {
+      "path": "codex-image-gen/bin/codex-image-gen-windows-amd64.exe",
+      "bytes": 7628288,
+      "mode": "0o755",
+      "sha256": "321ca03b8b2dd1cae2409c9f4bf14d9e237915f6e1685a8c18c3495fc9281c9c"
+    },
+    {
+      "path": "codex-image-gen/bin/codex-image-gen-windows-arm64.exe",
+      "bytes": 6912000,
+      "mode": "0o755",
+      "sha256": "9481fb2f14d930720843e972d0e75ad2e0204e4c39cdab7849619b4fd7395749"
+    },
+    {
+      "path": "codex-image-gen/references/batch-format.md",
+      "bytes": 1610,
+      "mode": "0o644",
+      "sha256": "8365991fd1253293a59b1f83690121c4540fda83087a17bb32f1c426913f5483"
+    },
+    {
+      "path": "codex-image-gen/references/runtime.md",
+      "bytes": 12990,
+      "mode": "0o644",
+      "sha256": "f462e7a067471b5e8729574804dead59b4aef136eeb5c80a39adc6c8e20e2397"
+    },
+    {
+      "path": "codex-image-gen/SKILL.md",
+      "bytes": 7944,
+      "mode": "0o644",
+      "sha256": "07f88ff02d518c5ba4162935db7e9e08e4d7486753d723af2e309d6dda25ac99"
+    },
+    {
+      "path": "codex-image-gen/src/catalog.go",
+      "bytes": 3807,
+      "mode": "0o644",
+      "sha256": "0bc09beb571c839aecc1371f9737865a4373153d4d1e41e78a88e0328fd6d3e6"
+    },
+    {
+      "path": "codex-image-gen/src/catalog_test.go",
+      "bytes": 8787,
+      "mode": "0o644",
+      "sha256": "225d224cdf266beab106c6ec976c6e6621df702138dfe5cc49c097d439d96a40"
+    },
+    {
+      "path": "codex-image-gen/src/go.mod",
+      "bytes": 34,
+      "mode": "0o644",
+      "sha256": "1f6e3ff70382a8b196ba3d75e30bb39efc8677feda92891d672cb88df9f98893"
+    },
+    {
+      "path": "codex-image-gen/src/image_gen.go",
+      "bytes": 35109,
+      "mode": "0o644",
+      "sha256": "021d2ab45976cbe9371b30b81849c974f8c2b1c0be0fc7bdfcaeb4a0520645f4"
+    },
+    {
+      "path": "codex-image-gen/src/image_gen_test.go",
+      "bytes": 3434,
+      "mode": "0o644",
+      "sha256": "5cd9d09b73d69bed8c05923c3ea0bf3fb12d161909daaee7f1bee766e41be110"
+    },
+    {
+      "path": "codex-image-gen/src/images.go",
+      "bytes": 11580,
+      "mode": "0o644",
+      "sha256": "210fe6c2eb9b84fa2eb489feb10419afbd07ee09a4d6bb9b076945846b4d1b65"
+    },
+    {
+      "path": "codex-image-gen/src/models.go",
+      "bytes": 4175,
+      "mode": "0o644",
+      "sha256": "6531d309c8b03ce6a2a2391fdc60d2ae173cecd554b047e05cb579d92e397a5d"
+    },
+    {
+      "path": "codex-image-gen/src/reliability.go",
+      "bytes": 14835,
+      "mode": "0o644",
+      "sha256": "712bd99bb3997f35e7ff33f5c7b15026c267f135764038e6ff18425711aa6460"
+    },
+    {
+      "path": "codex-image-gen/src/reliability_test.go",
+      "bytes": 24403,
+      "mode": "0o644",
+      "sha256": "0f924595e1d36c841b2ba23c701342cb2cc4ece00d7e5998e6ff478e0c8a0fcd"
+    },
+    {
+      "path": "codex-image-gen/src/state.go",
+      "bytes": 14606,
+      "mode": "0o644",
+      "sha256": "a7ead5652cccaa64f5865340b76fed420250f16bc3fd90a037782ed0f12e0303"
+    },
+    {
+      "path": "codex-image-gen/src/video.go",
+      "bytes": 9154,
+      "mode": "0o644",
+      "sha256": "cc44908ed622972a59049eedde858621cf62fb95b9dca38f0d0ba93c03ce8318"
+    }
+  ]
+}
