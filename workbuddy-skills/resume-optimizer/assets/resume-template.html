@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>简历 · A4 模板</title>
+<style>
+  @page {
+    size: A4;
+    margin: 14mm 16mm;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    color: #222;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* === 头部 === */
+  .header { text-align: center; margin-bottom: 4mm; }
+  .header h1 { font-size: 18pt; font-weight: 700; letter-spacing: 2px; }
+  .header .contact { font-size: 9.5pt; color: #555; margin-top: 3px; }
+  .header .intent { font-size: 10pt; color: #2c3e50; margin-top: 2px; font-weight: 600; }
+
+  /* === 章节标题 === */
+  h2 {
+    font-size: 12pt;
+    font-weight: 700;
+    color: #2c3e50;
+    border-left: 3px solid #2c3e50;
+    padding-left: 8px;
+    margin-top: 7.5mm;   /* 大段落间距（公司间距的 1.5 倍） */
+    margin-bottom: 4.5mm;
+  }
+
+  /* === 个人简介 === */
+  .summary { font-size: 10pt; line-height: 1.7; color: #333; }
+  .summary li { margin-bottom: 2px; }
+
+  /* === 核心能力表 === */
+  table.core { width: 100%; border-collapse: collapse; font-size: 9.8pt; margin-top: 2mm; }
+  table.core td { border: 1px solid #ddd; padding: 4px 8px; vertical-align: top; }
+  table.core td:first-child { font-weight: 700; color: #2c3e50; white-space: nowrap; width: 84px; background: #fafafa; }
+
+  /* === 工作经历（每家公司一个 .job，避免分页切断） === */
+  .job { margin-bottom: 6mm; page-break-inside: avoid; }
+  .job h3 { font-size: 10.5pt; font-weight: 700; margin-bottom: 2px; }
+  .job .meta { font-size: 9.5pt; color: #666; margin-bottom: 1px; }
+  .job .proj { font-size: 9.5pt; color: #888; margin: 2px 0; }
+  .job ul { margin: 2px 0 0 18px; }
+  .job li { margin-bottom: 2px; font-size: 10pt; }
+
+  /* === 量化成果统一高亮 === */
+  strong { color: #6366f1; font-weight: 700; }
+
+  /* === 教育背景 === */
+  .edu { font-size: 10pt; }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>姓名</h1>
+    <div class="contact">手机 · 邮箱 · 城市</div>
+    <div class="intent">求职意向：[目标岗位]</div>
+  </div>
+
+  <h2>个人简介</h2>
+  <ul class="summary">
+    <li><strong>[X] 年</strong> 行业全周期研发与运营经验，操盘项目涵盖[品类 A]、[品类 B]、[品类 C]等多品类</li>
+    <li>曾从零组建 [N] 人团队，主导[项目类型]运作，建立公司级 PMO 流程体系</li>
+    <li>主导项目 <strong>累计流水超 [X]</strong>，具备从立项评估、核心玩法设计、数值框架搭建到数据驱动运营的全链路能力</li>
+    <li>核心优势：强逻辑系统思维 · 跨团队统筹沟通 · 数据驱动决策 · 敏捷产品调优</li>
+  </ul>
+
+  <h2>核心能力</h2>
+  <table class="core">
+    <tr><td>产品研发</td><td>游戏立项评估 · 核心玩法设计 · 数值框架搭建 · 战斗/技能/AI 系统设计</td></tr>
+    <tr><td>项目管理</td><td>团队组建与培养 · PMO 流程建设 · 里程碑管理 · 外包协作</td></tr>
+    <tr><td>技术工具</td><td>Unity · CocosCreator · BehaviorTree · DialogueTree</td></tr>
+    <tr><td>中台协助</td><td>H5-SDK 完善 · 平台社交特性产品化 · BI 业务设计搭建</td></tr>
+    <tr><td>运营增长</td><td>数据采集方案设计 · 广告投放 · 混合变现策略</td></tr>
+    <tr><td>IP 运作</td><td>IP 评估与立项 · 授权方监修沟通 · 发行方对接</td></tr>
+    <tr><td>AI 能力</td><td>SDD 模式 · 自定义 Proposal 流程 · TDD · AIGC 美术优化</td></tr>
+  </table>
+
+  <h2>工作经历</h2>
+
+  <div class="job">
+    <h3>公司名称 | 岗位 | 起止时间</h3>
+    <div class="proj">核心项目：『项目名』（品类 / 亮点）</div>
+    <ul>
+      <li>以强动词开头的职责或成果描述</li>
+      <li><strong>量化成果用紫色加粗高亮，含具体数字</strong></li>
+    </ul>
+  </div>
+
+  <h2>教育背景</h2>
+  <p class="edu"><strong>学校名称</strong> | 专业 | 学历 | 起止时间<br>
+  <span style="font-size: 9.5pt; color:#666;">跨学科背景一句话差异化叙事。</span></p>
+
+</body>
+</html>

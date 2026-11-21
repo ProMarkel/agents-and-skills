@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[课程名称] · 学习指南</title>
+<style>
+  :root {
+    --bg: #fafafa;
+    --surface: #fff;
+    --text: #1a1a2e;
+    --text-secondary: #555;
+    --text-muted: #888;
+    --border: #e8e8ef;
+    --accent: #534AB7;
+    --accent-light: #EEEDFE;
+    --success: #0F6E56;
+    --success-light: #E1F5EE;
+    --warning: #854F0B;
+    --warning-light: #FAEEDA;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --transition: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 24px 20px 80px;
+  }
+
+  header {
+    text-align: center;
+    padding: 48px 0 32px;
+  }
+  header h1 {
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    margin-bottom: 8px;
+  }
+  header p {
+    color: var(--text-secondary);
+    font-size: 15px;
+  }
+  .video-source {
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .video-source a {
+    color: var(--accent);
+    text-decoration: none;
+    word-break: break-all;
+    transition: opacity var(--transition);
+  }
+  .video-source a:hover { opacity: 0.7; }
+
+  .stats-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 24px;
+    text-align: center;
+    min-width: 100px;
+  }
+  .stat-card .num {
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--accent);
+  }
+  .stat-card .label {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  .module-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+    padding: 4px;
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    position: sticky;
+    top: 16px;
+    z-index: 10;
+  }
+  .module-tab {
+    flex: 1 1 auto;
+    min-width: 110px;
+    padding: 10px 14px;
+    border: none;
+    background: transparent;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text-secondary);
+    transition: all var(--transition);
+    text-align: center;
+    white-space: nowrap;
+  }
+  .module-tab:hover { color: var(--text); background: var(--bg); }
+  .module-tab.active {
+    background: var(--accent-light);
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .episode-list { display: flex; flex-direction: column; gap: 12px; }
+
+  .episode-card {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all var(--transition);
+  }
+  .episode-card:hover { border-color: var(--accent); }
+
+  .episode-header {
+    display: flex;
+    align-items: center;
+    padding: 18px 20px;
+    cursor: pointer;
+    user-select: none;
+    gap: 12px;
+    transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .episode-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 500;
+    flex-shrink: 0;
+    transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .episode-info { flex: 1; min-width: 0; }
+  .episode-title {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 2px;
+    transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .episode-en {
+    font-size: 12px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .episode-duration {
+    font-size: 12px;
+    color: var(--text-muted);
+    background: var(--bg);
+    padding: 4px 10px;
+    border-radius: 20px;
+    flex-shrink: 0;
+    transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .episode-arrow {
+    font-size: 14px;
+    color: var(--text-muted);
+    transition: transform var(--transition), color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+  }
+  .episode-card.open .episode-arrow { transform: rotate(90deg); }
+
+  .episode-card.open .episode-header {
+    background: var(--accent-light);
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+  .episode-card.open .episode-header .episode-num {
+    background: #fff;
+    color: var(--accent);
+  }
+  .episode-card.open .episode-header .episode-title {
+    color: var(--accent);
+  }
+
+  .episode-body {
+    display: none;
+    padding: 0 20px 20px;
+    border-top: 0.5px solid var(--border);
+  }
+  .episode-card.open .episode-body { display: block; }
+
+  .video-wrapper {
+    width: calc(100% + 44px);
+    margin-left: -22px;
+    margin-right: -22px;
+    height: 0;
+    padding-bottom: 58.5%;
+    margin-top: 0;
+    margin-bottom: 16px;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+  }
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+
+  .section-label {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    margin: 16px 0 8px;
+  }
+  .section-label:first-child { margin-top: 16px; }
+
+  .points-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .points-list li {
+    padding: 8px 12px;
+    background: var(--bg);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 28px;
+  }
+  .points-list li::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 14px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .exercise-card {
+    background: var(--warning-light);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+  .exercise-card.q-card { background: var(--accent-light); }
+  .exercise-card .q-text {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .exercise-card .q-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .exercise-card .q-opt {
+    padding: 6px 14px;
+    border: 0.5px solid var(--border);
+    border-radius: 20px;
+    background: var(--surface);
+    cursor: pointer;
+    font-size: 13px;
+    transition: all var(--transition);
+  }
+  .exercise-card .q-opt:hover { border-color: var(--accent); }
+  .exercise-card .q-opt.correct { background: var(--success-light); border-color: var(--success); color: var(--success); }
+  .exercise-card .q-opt.wrong { background: #FCEBEB; border-color: #A32D2D; color: #A32D2D; }
+  .exercise-card .q-feedback {
+    font-size: 13px;
+    margin-top: 6px;
+    display: none;
+  }
+  .exercise-card .q-feedback.show { display: block; }
+  .exercise-card .q-feedback.correct { color: var(--success); }
+  .exercise-card .q-feedback.wrong { color: #A32D2D; }
+
+  .task-item {
+    font-size: 13px;
+    padding: 10px 14px;
+    background: var(--surface);
+    border-radius: var(--radius-sm);
+    margin-bottom: 8px;
+    border-left: 3px solid var(--accent);
+  }
+  .task-item .task-tag {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+  }
+
+  .key-concept {
+    background: var(--surface);
+    border: 0.5px solid var(--accent-light);
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .key-concept .kc-tag {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 2px;
+  }
+
+  @media (max-width: 640px) {
+    .module-tab { font-size: 12px; padding: 8px 10px; }
+    .episode-header { padding: 14px 16px; }
+    .episode-body { padding: 0 16px 16px; }
+  }
+
+  /* Embed mode: hide header, expand container for iframe display */
+  .embed header { display: none !important; }
+  .embed .container { max-width: 100% !important; padding-top: 0 !important; }
+  .embed .stats-row { display: none !important; }
+  .embed .module-tabs { margin-top: 0 !important; }
+  html.embed, body.embed { scrollbar-gutter: stable; }
+</style>
+</head>
+<body>
+<script>
+// Embed mode detection — adds .embed class when loaded in iframe via ?embed=1
+if (window.location.search.includes('embed=1')) {
+  document.addEventListener('DOMContentLoaded', function() {
+    document.body.classList.add('embed');
+    document.documentElement.classList.add('embed');
+  });
+}
+</script>
+<div class="container">
+
+<header>
+  <h1>[课程名称] · 学习指南</h1>
+  <p>[课程副标题 — 出品方 · 集数 · 简介]</p>
+  <div class="video-source">📺 <a href="[Bilibili视频链接]" target="_blank">[Bilibili链接显示文本]</a></div>
+</header>
+
+<div class="stats-row">
+  <div class="stat-card"><div class="num">[集数]</div><div class="label">集课程</div></div>
+  <div class="stat-card"><div class="num">[模块数]</div><div class="label">学习模块</div></div>
+  <div class="stat-card"><div class="num">[知识点数]+</div><div class="label">核心知识点</div></div>
+  <div class="stat-card"><div class="num">[练习数]+</div><div class="label">练习题</div></div>
+</div>
+
+<div class="module-tabs" id="moduleTabs"></div>
+<div class="episode-list" id="episodeList"></div>
+
+</div>
+
+<script>
+// TODO: 修改 BVID — 替换为实际课程的 Bilibili BVID（如 BV1JZ4y1i7az）
+const BVID = '[BVID]';
+
+const modules = [
+  // TODO: 定义课程模块
+  // 格式：{ id: 'xxx', name: '模块名', icon: '图标emoji', episodes: [集索引数组] }
+  // 集索引从 0 开始，对应 episodes 数组中的位置
+  { id: 'module1', name: '模块一', icon: '📘', episodes: [0, 1, 2] },
+  { id: 'module2', name: '模块二', icon: '🛠️', episodes: [3, 4, 5] },
+];
+
+const episodes = [
+  // TODO: 定义每集内容
+  // 格式：{ num: '01', title: '中文标题', en: 'English title', dur: '12:34',
+  //         points: ['知识点1', '知识点2', ...],
+  //         exercises: [{ type: 'quiz', q: '问题', options: ['A','B','C','D'], answer: 0, explain: '解释' },
+  //                    { type: 'task', tag: '练习标签', text: '练习描述' }] }
+  {
+    num: '01', title: '第一集标题', en: 'Episode 1 English Title', dur: '10:00',
+    points: [
+      '核心知识点一',
+      '核心知识点二',
+      '核心知识点三',
+    ],
+    exercises: [
+      { type: 'quiz', q: '选择题示例：以下哪个是正确的？', options: ['选项A', '选项B', '选项C', '选项D'], answer: 0, explain: '正确，因为……' },
+      { type: 'task', tag: '动手练习', text: '动手任务示例：请尝试……' },
+    ]
+  },
+];
+
+let currentModule = 0;
+
+function renderTabs() {
+  const tabs = document.getElementById('moduleTabs');
+  tabs.innerHTML = modules.map((m, i) =>
+    `<button class="module-tab${i === currentModule ? ' active' : ''}" onclick="switchModule(${i})">${m.icon} ${m.name}</button>`
+  ).join('');
+}
+
+function switchModule(i) {
+  currentModule = i;
+  renderTabs();
+  renderEpisodes();
+}
+
+function renderEpisodes() {
+  const list = document.getElementById('episodeList');
+  const mod = modules[currentModule];
+  list.innerHTML = mod.episodes.map(idx => {
+    const ep = episodes[idx];
+    const pointItems = ep.points.map(p => `<li>${p}</li>`).join('');
+    const exerciseItems = ep.exercises.map((ex, ei) => {
+      if (ex.type === 'quiz') {
+        return `<div class="exercise-card q-card">
+          <div class="q-text">❓ ${ex.q}</div>
+          <div class="q-options">${ex.options.map((opt, oi) =>
+            `<span class="q-opt" onclick="checkAnswer(this, 'ep${idx}_q${ei}', ${oi}, ${ex.answer})">${String.fromCharCode(65+oi)}. ${opt}</span>`
+          ).join('')}</div>
+          <div class="q-feedback" id="ep${idx}_q${ei}_fb">${ex.explain}</div>
+        </div>`;
+      } else {
+        return `<div class="task-item">
+          <div class="task-tag">📋 ${ex.tag}</div>
+          <div>${ex.text}</div>
+        </div>`;
+      }
+    }).join('');
+
+    return `<div class="episode-card" id="ep${idx}">
+      <div class="episode-header" onclick="toggleEpisode(${idx})">
+        <div class="episode-num">#${ep.num}</div>
+        <div class="episode-info">
+          <div class="episode-title">${ep.title}</div>
+          <div class="episode-en">${ep.en}</div>
+        </div>
+        <div class="episode-duration">${ep.dur}</div>
+        <div class="episode-arrow">▶</div>
+      </div>
+      <div class="episode-body">
+        <div class="video-wrapper">
+          <iframe src="https://www.bilibili.com/video/${BVID}?p=${idx + 1}" allowfullscreen loading="lazy" scrolling="no"></iframe>
+        </div>
+        <div class="section-label">核心知识点</div>
+        <ul class="points-list">${pointItems}</ul>
+        <div class="section-label">课后练习</div>
+        ${exerciseItems}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toggleEpisode(idx) {
+  const card = document.getElementById('ep' + idx);
+  card.classList.toggle('open');
+}
+
+function checkAnswer(el, feedbackId, chosen, correct) {
+  const fb = document.getElementById(feedbackId + '_fb');
+  const allOpts = el.parentElement.querySelectorAll('.q-opt');
+  allOpts.forEach(o => { o.classList.remove('correct', 'wrong'); o.style.pointerEvents = 'none'; });
+
+  if (chosen === correct) {
+    el.classList.add('correct');
+    fb.className = 'q-feedback correct show';
+  } else {
+    el.classList.add('wrong');
+    allOpts[correct].classList.add('correct');
+    fb.className = 'q-feedback wrong show';
+  }
+}
+
+renderTabs();
+renderEpisodes();
+</script>
+</body>
+</html>
