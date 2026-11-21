@@ -18,6 +18,15 @@
 
 两者都通过兼容的图片 API 网关工作：读取 `CODEX_API_URL` 与 `CODEX_API_KEY`，支持模型自动选择、批量生成和失败恢复。未配置 URL 时不会静默切换，需用户明确选择是否使用内置预设地址。
 
+## ZIP 发布包
+
+不想 clone 整个仓库的话，可直接下载单个技能的 ZIP（解压后为带日期的发布包目录，结构同下）：
+
+- [codex-image-gen-20261121.zip](packages/codex-image-gen-20261121.zip) — 通用跨平台版，11.7 MB
+- [codex-image-gen-mac-20261122.zip](packages/codex-image-gen-mac-20261122.zip) — macOS 专享版，11.8 MB
+
+ZIP 保留 Unix 权限位，`bin/` 下原生 CLI 解压后即可执行，无需 `chmod`。内容、权限和 SHA-256 与仓库内发布包目录逐文件一致。
+
 ## 快速开始
 
 1. 进入对应技能包，阅读 `INSTALL.zh-CN.md`。
@@ -41,6 +50,7 @@ agents-and-skills/
 ├── LICENSE                              # MIT
 ├── .gitattributes                       # 二进制/文本文件换行符规则
 ├── .gitignore                           # 排除运行时产物与本地凭证
+├── packages/                            # 两个技能的 ZIP 发布包
 ├── codex-image-gen-20261121/            # 通用跨平台版发布包
 │   ├── INSTALL.zh-CN.md                 # 安装说明
 │   ├── VALIDATION.zh-CN.md              # 验证记录
